@@ -1,0 +1,16 @@
+Bagaimana mengambil component Button yang sudah dibuat 
+di atoms/Button.jsx kirim ke organisms/SearchBar.jsx?
+agar tidak perlu membuat ulang component tombol Button
+
+-------------------------------------------------------------------------
+Menggunakan select dengan prefix icon (icon di depan), bisa pakai
+alternatif <Space.Compact>
+
+<Space.Compact block>
+      <Select defaultValue="Option1">
+        <Option value="Option1">Option1</Option>
+        <Option value="Option2">Option2</Option>
+      </Select>
+      <Input style={{ width: '50%' }} defaultValue="input content" />
+      <InputNumber defaultValue={12} />
+</Space.Compact>
