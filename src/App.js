@@ -18,14 +18,18 @@ import Layout from 'antd/es/layout/layout'
 import LayoutPage from './components2/page/Navbar/LayoutPage'
 import ContohSaja from './components2/page/Navbar/ContohSaja'
 import Example from './contohResponsive/Responsive'
+import FindJobs from './components2/page/Navbar/FindJobs'
 
 
 export default function App() {
 	return (
 		<div className='container' >
+			{/* <LandingPage /> */}
+			<FindJobs />
+
+
 			{/* <Example /> */}
 			{/* <ContohSaja /> */}
-			<LandingPage />
 			{/* <Homepage /> */}
 			{/* <LayoutPage /> */}
 			{/* <Company /> */}
