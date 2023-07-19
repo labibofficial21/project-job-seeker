@@ -16,6 +16,7 @@ import {
 } from "antd";
 import { Content, Footer, Header } from "antd/es/layout/layout";
 import { React, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
 	EnvironmentOutlined,
 	SearchOutlined,
@@ -42,10 +43,12 @@ const { Meta } = Card;
 const { Option } = Select;
 
 export default function LandingPage() {
-	const [current, setCurrent] = useState("mail");
-	const onClick = (e) => {
-		console.log("click", e);
-		setCurrent(e.key);
+	const navigate = useNavigate();
+	const handleMenuClick = ({ key }) => {
+		if (key) {
+			navigate(key);
+			console.log(key);
+		}
 	};
 
 	return (
@@ -55,12 +58,14 @@ export default function LandingPage() {
 					<div style={{ display: "flex" }}>
 						<Space>
 							<Image src={require("../../../images/logo.png")} />
-							<h1 style={{ marginBlock: 0 }}>JobHuntly</h1>
+							<a href="/" style={{ color: "black" }}>
+								<h1 style={{ marginBlock: 0 }}>JobHuntly</h1>
+							</a>
 							<Menu
 								items={items}
 								mode="horizontal"
-								onClick={onClick}
-								selectedKeys={[current]}
+								onClick={handleMenuClick}
+								selectedKeys={["/"]}
 							/>
 						</Space>
 						<Space style={{ marginInlineStart: "auto", maxWidth: "100%" }}>

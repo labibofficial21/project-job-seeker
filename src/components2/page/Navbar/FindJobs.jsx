@@ -43,6 +43,7 @@ import {
 	categoryJobs,
 	openJobs,
 } from "./Dataset";
+import { useNavigate } from "react-router-dom";
 
 const { Text, Title, Link } = Typography;
 const { Meta } = Card;
@@ -112,10 +113,12 @@ const itemsJobLevel = [
 ];
 
 export default function LandingPage() {
-	const [current, setCurrent] = useState("mail");
-	const onClick = (e) => {
-		console.log("click", e);
-		setCurrent(e.key);
+	const navigate = useNavigate();
+	const handleMenuClick = ({ key }) => {
+		if (key) {
+			navigate(key);
+			console.log(key);
+		}
 	};
 
 	return (
@@ -125,12 +128,14 @@ export default function LandingPage() {
 					<div style={{ display: "flex" }}>
 						<Space>
 							<Image src={require("../../../images/logo.png")} />
-							<h1 style={{ marginBlock: 0 }}>JobHuntly</h1>
+							<a href="/" style={{ color: "black" }}>
+								<h1 style={{ marginBlock: 0 }}>JobHuntly</h1>
+							</a>
 							<Menu
 								items={items}
 								mode="horizontal"
-								onClick={onClick}
-								selectedKeys={[current]}
+								onClick={handleMenuClick}
+								selectedKeys={["/companies"]}
 							/>
 						</Space>
 						<Space style={{ marginInlineStart: "auto", maxWidth: "100%" }}>
@@ -202,28 +207,24 @@ export default function LandingPage() {
 						<Row>
 							<Col flex="20%">
 								<Menu
-									onClick={onClick}
 									defaultSelectedKeys={["1a"]}
 									defaultOpenKeys={["sub1"]}
 									mode="inline"
 									items={itemsEmployment}
 								/>
 								<Menu
-									onClick={onClick}
 									defaultSelectedKeys={["2a"]}
 									defaultOpenKeys={["sub2"]}
 									mode="inline"
 									items={itemsCategories}
 								/>
 								<Menu
-									onClick={onClick}
 									defaultSelectedKeys={["2a"]}
 									defaultOpenKeys={["sub2"]}
 									mode="inline"
 									items={itemsJobLevel}
 								/>
 								<Menu
-									onClick={onClick}
 									defaultSelectedKeys={["2a"]}
 									defaultOpenKeys={["sub2"]}
 									mode="inline"

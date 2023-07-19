@@ -44,11 +44,11 @@ export const ButtonCustom_2 = {
 export const items = [
 	{
 		label: "Find Jobs",
-		key: "jobs",
+		key: "/",
 	},
 	{
 		label: "Browse Companies",
-		key: "companies",
+		key: "/companies",
 	},
 ];
 

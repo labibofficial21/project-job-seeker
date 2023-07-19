@@ -23,12 +23,18 @@ import Buttons from './components2/atoms/Buttons'
 import Homepage from './components2/page/Navbar/Homepage'
 import LayoutPage from './components2/page/Navbar/LayoutPage'
 import ContohSaja from './components2/page/Navbar/ContohSaja'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 
 export default function App() {
 	return (
 		<div className='container' >
-			<LandingPage />
+			<Routes>
+				<Route path='/' element={<LandingPage />} />
+				<Route path='/companies' element={<FindJobs />} />
+			</Routes>
+
+			{/* <LandingPage /> */}
 			{/* <FindJobs /> */}
 
 			{/* Penggunaan useMediaQuery */}
